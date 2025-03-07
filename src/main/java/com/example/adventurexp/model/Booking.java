@@ -14,11 +14,11 @@ public class Booking {
 
 
     @ManyToOne
-    @JoinColumn(name = "Activity_id_fk", nullable = true)
+    @JoinColumn(name = "Activity_id_fk", nullable = false)
     private Activity activity;
 
    /* @ManyToOne
-    @JoinColumn(name = "Customer_id_fk", nullable = true)
+    @JoinColumn(name = "Customer_id_fk", nullable = false)
     private Customer customer;*/
 
 

@@ -1,4 +1,7 @@
 package com.example.adventurexp.repositories;
 
-public class SalesItemRepo {
+import com.example.adventurexp.model.SalesItem;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface SalesItemRepo extends JpaRepository<SalesItem, Integer> {
 }

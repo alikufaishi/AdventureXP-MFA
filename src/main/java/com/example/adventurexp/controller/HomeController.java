@@ -2,6 +2,7 @@ package com.example.adventurexp.controller;
 
 import com.example.adventurexp.model.Activity;
 import com.example.adventurexp.model.Booking;
+import com.example.adventurexp.repositories.ActivityRepo;
 import com.example.adventurexp.repositories.BookingRepo;
 import com.example.adventurexp.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +23,17 @@ public class HomeController {
     @Autowired
     BookingRepo bookingRepo;
 
+    @Autowired
+    ActivityRepo activityRepo;
+
     @GetMapping("index")
     public List<Booking> getAllBookings() {
-        Activity activity1 = new Activity();
+
+        /*
+        // Her opretter vi en række i Activity-tabellen
+        Activity activity1 = new Activity("Bowling",12, 145, "hat", 123);
+        activityRepo.save(activity1);
+
 
         Booking booking1 = new Booking();
         booking1.setTime(LocalTime.now());
@@ -35,9 +44,11 @@ public class HomeController {
         booking1.setSweet_Grams(0);
         booking1.setTshirts(5);
 
-        booking1.setActivity(new Activity(1,"Bowling", 12, 145, "hat", 123));
+        // Her finder vi en eksisterende række i activity-tabellen og laver en foreign key til den
+        booking1.setActivity(new Activity("Bowling",12, 145, "hat", 123));
         //booking1.setCustomer("");
         bookingRepo.save(booking1);
+        */
         return bookingService.findAll();
     }
 }
