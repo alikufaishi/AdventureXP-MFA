@@ -12,15 +12,15 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    /*
-    @ManyToOne
-    @JoinColumn(name = "Activity_id_fk", referencedColumnName = "ID", nullable = true)
-    private Activity activity;
 
     @ManyToOne
-    @JoinColumn(name = "Customer_id_fk", referencedColumnName = "ID", nullable = true)
-    private Customer customer;
-    */
+    @JoinColumn(name = "Activity_id_fk", nullable = true)
+    private Activity activity;
+
+   /* @ManyToOne
+    @JoinColumn(name = "Customer_id_fk", nullable = true)
+    private Customer customer;*/
+
 
     @Column(nullable = false)
     private LocalDate date;
@@ -45,7 +45,7 @@ public class Booking {
     public void setId(int id) {
         this.id = id;
     }
-    /*
+
     public Activity getActivity() {
         return activity;
     }
@@ -53,15 +53,15 @@ public class Booking {
     public void setActivity(Activity activity) {
         this.activity = activity;
     }
+    /*
+        public Customer getCustomer() {
+            return customer;
+        }
 
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-    */
+        public void setCustomer(Customer customer) {
+            this.customer = customer;
+        }
+        */
     public LocalDate getDate() {
         return date;
     }

@@ -5,14 +5,22 @@ import jakarta.persistence.*;
 @Entity
 public class Activity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     private String title;
     private int age_Requirement;
     private int height_Requirement;
     private String equipment;
     private int hourly_price;
+
+    public Activity(int id, String title, int age_Requirement, int height_Requirement, String equipment, int hourly_price) {
+        this.id = id;
+        this.title = title;
+        this.age_Requirement = age_Requirement;
+        this.height_Requirement = height_Requirement;
+        this.equipment = equipment;
+        this.hourly_price = hourly_price;
+    }
 
 
     public int getId() {
