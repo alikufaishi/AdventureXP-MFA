@@ -14,9 +14,9 @@ import java.time.LocalTime;
 import java.util.List;
 
 
+// CrossOrigin definerer hvor requesten må komme fra
 @RestController
-@RequestMapping("/activities")
-@CrossOrigin(origins = "http://localhost:63342")
+@CrossOrigin(origins = "http://localhost:63343")
 public class HomeController {
 
     @Autowired
@@ -31,11 +31,13 @@ public class HomeController {
     @Autowired
     ActivityRepo activityRepo;
 
-    @PostMapping
+    // Postmapping fortæller at når en frontend server sender request til 8080/activities, så kører denne kode
+    @PostMapping("/activities")
     public Activity createActivity(@RequestBody Activity activity) {
         return activityService.saveActivity(activity);
     }
 
+    // Bruges ikke til noget
     @GetMapping("index")
     public List<Booking> getAllBookings() {
 

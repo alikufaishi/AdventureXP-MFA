@@ -7,10 +7,15 @@ public class Activity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(nullable = false)
     private String title;
+    @Column(nullable = true)
     private int age_Requirement;
+    @Column(nullable = true)
     private int height_Requirement;
+    @Column(nullable = true)
     private String equipment;
+    @Column(nullable = false)
     private int hourly_price;
 
     /*

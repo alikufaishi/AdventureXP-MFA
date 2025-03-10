@@ -12,7 +12,6 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-
     @ManyToOne
     @JoinColumn(name = "Activity_id_fk", nullable = false)
     private Activity activity;
@@ -20,7 +19,6 @@ public class Booking {
    /* @ManyToOne
     @JoinColumn(name = "Customer_id_fk", nullable = false)
     private Customer customer;*/
-
 
     @Column(nullable = false)
     private LocalDate date;
