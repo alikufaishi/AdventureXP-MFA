@@ -4,10 +4,10 @@ import com.example.adventurexp.model.Activity;
 import com.example.adventurexp.model.Booking;
 import com.example.adventurexp.repositories.ActivityRepo;
 import com.example.adventurexp.repositories.BookingRepo;
+import com.example.adventurexp.service.ActivityService;
 import com.example.adventurexp.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -15,16 +15,26 @@ import java.util.List;
 
 
 @RestController
+@RequestMapping("/activities")
+@CrossOrigin(origins = "http://localhost:63342")
 public class HomeController {
 
     @Autowired
     BookingService bookingService;
 
     @Autowired
+    private ActivityService activityService;
+
+    @Autowired
     BookingRepo bookingRepo;
 
     @Autowired
     ActivityRepo activityRepo;
+
+    @PostMapping
+    public Activity createActivity(@RequestBody Activity activity) {
+        return activityService.saveActivity(activity);
+    }
 
     @GetMapping("index")
     public List<Booking> getAllBookings() {
