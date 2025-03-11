@@ -31,10 +31,15 @@ public class HomeController {
     @Autowired
     ActivityRepo activityRepo;
 
-    // Postmapping fortæller at når en frontend server sender request til 8080/activities, så kører denne kode
+    // Postmapping fortæller at når en frontend server sender request til /activities, så kører denne kode
     @PostMapping("/activities")
     public Activity createActivity(@RequestBody Activity activity) {
         return activityService.saveActivity(activity);
+    }
+
+    @GetMapping("/activities")
+    public List<Activity> getAllActivities() {
+        return activityService.findAll(); // Henter alle aktiviteter fra databasen
     }
 
     // Bruges ikke til noget
