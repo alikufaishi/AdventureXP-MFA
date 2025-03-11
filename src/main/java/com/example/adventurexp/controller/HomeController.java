@@ -16,7 +16,7 @@ import java.util.List;
 
 // CrossOrigin definerer hvor requesten må komme fra
 @RestController
-@CrossOrigin(origins = "http://localhost:63343")
+@CrossOrigin(origins = "https://white-cliff-01dae2510.6.azurestaticapps.net/")
 public class HomeController {
 
     @Autowired
