@@ -9,6 +9,7 @@ import com.example.adventurexp.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.List;
 
 
@@ -32,5 +33,9 @@ public class HomeController {
     @GetMapping("/activities")
     public List<Activity> getAllActivities() {
         return activityService.findAll(); // Henter alle aktiviteter fra databasen
+    }
+    @PostMapping("/create-booking")
+    public Booking createBooking(@RequestBody Booking booking) {
+        return bookingService.createBooking(booking);
     }
 }

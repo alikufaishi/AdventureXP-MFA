@@ -16,9 +16,9 @@ public class Booking {
     @JoinColumn(name = "Activity_id_fk", nullable = false)
     private Activity activity;
 
-   /* @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "Customer_id_fk", nullable = false)
-    private Customer customer;*/
+    private Customer customer;
 
     @Column(nullable = false)
     private LocalDate date;
@@ -51,15 +51,14 @@ public class Booking {
     public void setActivity(Activity activity) {
         this.activity = activity;
     }
-    /*
-        public Customer getCustomer() {
-            return customer;
-        }
 
-        public void setCustomer(Customer customer) {
+    public Customer getCustomer() {
+            return customer;
+    }
+
+    public void setCustomer(Customer customer) {
             this.customer = customer;
-        }
-        */
+    }
     public LocalDate getDate() {
         return date;
     }
