@@ -14,8 +14,6 @@ import java.util.List;
 
 // CrossOrigin definerer hvor requesten må komme fra
 @RestController
-@RequestMapping("/api") // Tilføjet som test fordi https://adventurexp-g5freqhuangfa9ab.northeurope-01.azurewebsites.net gav whitelabel error
-// Prøv herefter linket https://adventurexp-g5freqhuangfa9ab.northeurope-01.azurewebsites.net/api/activities
 @CrossOrigin(origins = "https://white-cliff-01dae2510.6.azurestaticapps.net")
 public class HomeController {
 
