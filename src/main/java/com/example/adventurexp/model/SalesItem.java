@@ -1,9 +1,6 @@
 package com.example.adventurexp.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class SalesItem {
@@ -11,5 +8,11 @@ public class SalesItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(nullable = false)
+    private String type;
+
+    @Column(nullable = false)
+    private int price;
 
 }
