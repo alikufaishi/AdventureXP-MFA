@@ -45,6 +45,11 @@ public class HomeController {
         return salesItemService.findAll(); // Henter alle produkter fra databasen
     }
 
+    @PostMapping("/salesItems")
+    public SalesItem createSalesItem(@RequestBody SalesItem salesItem) {
+        return salesItemService.saveSalesItem(salesItem); // Gemmer et produkt i butikken
+    }
+
     @PostMapping("/create-booking")
     public Booking createBooking(@RequestBody Booking booking) {
         return bookingService.createBooking(booking);
