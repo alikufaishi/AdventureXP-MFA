@@ -40,12 +40,12 @@ public class HomeController {
         return activityService.findAll(); // Henter alle aktiviteter fra databasen
     }
 
-    @GetMapping("/salesItems")
+    @GetMapping("/salesitems")
     public List<SalesItem> getAllSalesItems() {
         return salesItemService.findAll(); // Henter alle produkter fra databasen
     }
 
-    @PostMapping("/salesItems")
+    @PostMapping("/salesitems")
     public SalesItem createSalesItem(@RequestBody SalesItem salesItem) {
         return salesItemService.saveSalesItem(salesItem); // Gemmer et produkt i butikken
     }
