@@ -3,6 +3,7 @@ package com.example.adventurexp.model;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "sales_item")
 public class SalesItem {
 
     @Id
