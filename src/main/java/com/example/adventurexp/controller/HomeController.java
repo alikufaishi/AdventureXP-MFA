@@ -2,10 +2,12 @@ package com.example.adventurexp.controller;
 
 import com.example.adventurexp.model.Activity;
 import com.example.adventurexp.model.Booking;
+import com.example.adventurexp.model.SalesItem;
 import com.example.adventurexp.repositories.ActivityRepo;
 import com.example.adventurexp.repositories.BookingRepo;
 import com.example.adventurexp.service.ActivityService;
 import com.example.adventurexp.service.BookingService;
+import com.example.adventurexp.service.SalesItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +26,9 @@ public class HomeController {
     @Autowired
     private ActivityService activityService;
 
+    @Autowired
+    private SalesItemService salesItemService;
+
     // Postmapping fortæller at når en frontend server sender request til /activities, så kører denne kode
     @PostMapping("/activities")
     public Activity createActivity(@RequestBody Activity activity) {
@@ -34,6 +39,12 @@ public class HomeController {
     public List<Activity> getAllActivities() {
         return activityService.findAll(); // Henter alle aktiviteter fra databasen
     }
+
+    @GetMapping("/salesItems")
+    public List<SalesItem> getAllSalesItems() {
+        return salesItemService.findAll(); // Henter alle produkter fra databasen
+    }
+
     @PostMapping("/create-booking")
     public Booking createBooking(@RequestBody Booking booking) {
         return bookingService.createBooking(booking);
