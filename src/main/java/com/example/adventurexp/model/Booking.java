@@ -34,6 +34,7 @@ public class Booking {
     private int tshirts;
     @Column(nullable = false)
     private int sodas;
+    private String instructor;
     private float totalPrice;
 
     public int getId() {
@@ -121,5 +122,13 @@ public class Booking {
 
     public void setTotalPrice(float totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public String getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(String instructor) {
+        this.instructor = instructor;
     }
 }
