@@ -81,5 +81,16 @@ public class BookingService {
         bookingRepo.deleteById(id);
     }
 
+    public Booking updateInstructor(int id, String instructor) {
+        Optional<Booking> existingBookingOpt = bookingRepo.findById(id);
+
+        if (existingBookingOpt.isPresent()) {
+            Booking existingBooking = existingBookingOpt.get();
+            existingBooking.setInstructor(instructor);
+            return bookingRepo.save(existingBooking);
+        }else {
+            throw new IllegalArgumentException("Booking med id " + id + " blev ikke fundet.");
+        }
+    }
 
 }

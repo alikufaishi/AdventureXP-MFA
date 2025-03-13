@@ -77,6 +77,10 @@ public class HomeController {
     public Booking updateBooking(@PathVariable int id, @RequestBody Booking booking) {
         return bookingService.updateBooking(id, booking);
     }
+    @PutMapping("/bookings/{id}/instructor")
+    public Booking updateInstructor(@PathVariable int id, @RequestBody String instructor) {
+        return bookingService.updateInstructor(id, instructor);
+    }
     @DeleteMapping("/bookings/{id}")
     public void deleteBooking(@PathVariable int id) {
         bookingService.deleteBooking(id);
