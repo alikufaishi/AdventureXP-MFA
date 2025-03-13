@@ -9,7 +9,7 @@ import java.util.List;
 public interface BookingRepo extends JpaRepository<Booking, Integer> {
     List<Booking> findByDate(LocalDate date);
 
-    List<Booking> findAllByOrderByDateDesc();
+    List<Booking> findAllByOrderByDateDescTimeDesc();
 
     // Find bookinger for en bestemt aktivitet**
     List<Booking> findByActivityId(int activityId);
