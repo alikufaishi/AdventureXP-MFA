@@ -7,6 +7,7 @@ import com.example.adventurexp.repositories.BookingRepo;
 import com.example.adventurexp.service.ActivityService;
 import com.example.adventurexp.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -38,4 +39,16 @@ public class HomeController {
     public Booking createBooking(@RequestBody Booking booking) {
         return bookingService.createBooking(booking);
     }
+    @PutMapping("/bookings/{id}")
+    public Booking updateBooking(@PathVariable int id, @RequestBody Booking booking) {
+        return bookingService.updateBooking(id, booking);
+    }
+    @DeleteMapping("/bookings/{id}")
+    public void deleteBooking(@PathVariable int id) {
+        bookingService.deleteBooking(id);
+    }
+
+
+
 }
+

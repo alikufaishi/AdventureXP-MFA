@@ -40,4 +40,17 @@ public class BookingService {
         // Gem bookingen med den tilknyttede kunde
         return bookingRepo.save(booking);
     }
+    public Booking updateBooking(int id, Booking updatedBooking) {
+        if (bookingRepo.existsById(id)) {
+            updatedBooking.setId(id); // Sørger for at ID'et ikke ændres
+            return bookingRepo.save(updatedBooking);
+        } else {
+            throw new IllegalArgumentException("Booking ikke fundet");
+        }
+    }
+    public void deleteBooking(int id) {
+        bookingRepo.deleteById(id);
+    }
+
+
 }
