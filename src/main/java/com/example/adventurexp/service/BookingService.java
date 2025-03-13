@@ -19,7 +19,7 @@ public class BookingService {
     private CustomerRepo customerRepo;
 
     public List<Booking> findAll(){
-        return bookingRepo.findAllByOrderByDateDescTimeAsc();
+        return bookingRepo.findAllByOrderByDateAscTimeDesc();
     }
     public Booking createBooking(Booking booking) {
         // Tjek om kunden allerede findes i databasen via email
