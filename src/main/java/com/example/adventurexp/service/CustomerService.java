@@ -16,4 +16,16 @@ public class CustomerService {
     public Optional<Customer> findCustomerByPhone(String phone) {
         return customerRepo.findByPhone(phone);
     }
+
+    public Customer updateCustomer(int id, Customer updatedCustomer) {
+        return customerRepo.findById(id).map(existingCustomer -> {
+            if (updatedCustomer.getName() != null) {
+                existingCustomer.setName(updatedCustomer.getName());
+            }
+            if (updatedCustomer.getPhone() != null) {
+                existingCustomer.setPhone(updatedCustomer.getPhone());
+            }
+            return customerRepo.save(existingCustomer);
+        }).orElseThrow(() -> new IllegalArgumentException("Kunde ikke fundet"));
+    }
 }

@@ -2,11 +2,13 @@ package com.example.adventurexp.controller;
 
 import com.example.adventurexp.model.Activity;
 import com.example.adventurexp.model.Booking;
+import com.example.adventurexp.model.Customer;
 import com.example.adventurexp.model.SalesItem;
 import com.example.adventurexp.repositories.ActivityRepo;
 import com.example.adventurexp.repositories.BookingRepo;
 import com.example.adventurexp.service.ActivityService;
 import com.example.adventurexp.service.BookingService;
+import com.example.adventurexp.service.CustomerService;
 import com.example.adventurexp.service.SalesItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +32,9 @@ public class HomeController {
     @Autowired
     private SalesItemService salesItemService;
 
+    @Autowired
+    private CustomerService customerService;
+
     // Postmapping fortæller at når en frontend server sender request til /activities, så kører denne kode
     @PostMapping("/activities")
     public Activity createActivity(@RequestBody Activity activity) {
@@ -39,6 +44,14 @@ public class HomeController {
     @GetMapping("/activities")
     public List<Activity> getAllActivities() {
         return activityService.findAll(); // Henter alle aktiviteter fra databasen
+    }
+    @PutMapping("/customers/{id}")
+    public Customer updateCustomer(@PathVariable int id, @RequestBody Customer customer) {
+        return customerService.updateCustomer(id, customer);
+    }
+    @PutMapping("/activities/{id}")
+    public Activity updateActivity(@PathVariable int id, @RequestBody Activity activity) {
+        return activityService.updateActivity(id, activity);
     }
 
     @GetMapping("/salesitems")

@@ -20,4 +20,13 @@ public class ActivityService {
     public List<Activity> findAll() {
         return activityRepo.findAll(); // Henter alle aktiviteter fra databasen
     }
+
+    public Activity updateActivity(int id, Activity updatedActivity) {
+        return activityRepo.findById(id).map(existingActivity -> {
+            if (updatedActivity.getTitle() != null) {
+                existingActivity.setTitle(updatedActivity.getTitle()); // Opdaterer kun hvis `title` er sendt
+            }
+            return activityRepo.save(existingActivity);
+        }).orElseThrow(() -> new IllegalArgumentException("Aktivitet ikke fundet"));
+    }
 }
