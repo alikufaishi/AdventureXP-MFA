@@ -86,7 +86,10 @@ public class HomeController {
         bookingService.deleteBooking(id);
     }
 
-
+    @PutMapping("/salesitems/{id}/price")
+    public SalesItem updateSalesItemPrice(@PathVariable int id, @RequestBody int price) {
+        return salesItemService.updateSalesItemPrice(id, price);
+    }
 
 }
 
