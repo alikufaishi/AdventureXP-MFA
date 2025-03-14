@@ -24,10 +24,15 @@ import java.util.List;
 public class HomeController {
 
     @Autowired
-    BookingService bookingService;
+    private ActivityService activityService;
+
+    @GetMapping("/activities")
+    public List<Activity> getAllActivities() {
+        return activityService.findAll(); // Henter alle aktiviteter fra databasen
+    }
 
     @Autowired
-    private ActivityService activityService;
+    BookingService bookingService;
 
     @Autowired
     private SalesItemService salesItemService;
@@ -41,10 +46,7 @@ public class HomeController {
         return activityService.saveActivity(activity);
     }
 
-    @GetMapping("/activities")
-    public List<Activity> getAllActivities() {
-        return activityService.findAll(); // Henter alle aktiviteter fra databasen
-    }
+
     @PutMapping("/customers/{id}")
     public Customer updateCustomer(@PathVariable int id, @RequestBody Customer customer) {
         return customerService.updateCustomer(id, customer);
