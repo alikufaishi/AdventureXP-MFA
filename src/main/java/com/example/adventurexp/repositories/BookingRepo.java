@@ -11,7 +11,7 @@ public interface BookingRepo extends JpaRepository<Booking, Integer> {
 
     List<Booking> findAllByOrderByDateAscTimeAsc();
 
-    // Find bookinger for en bestemt aktivitet**
+    // Find bookinger for en bestemt aktivitet
     List<Booking> findByActivityId(int activityId);
 
 }
