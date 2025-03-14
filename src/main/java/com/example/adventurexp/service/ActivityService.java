@@ -13,10 +13,6 @@ public class ActivityService {
     @Autowired
     private ActivityRepo activityRepo;
 
-    public Activity saveActivity(Activity activity) {
-        return activityRepo.save(activity);
-    }
-
     public List<Activity> findAll() {
         return activityRepo.findAll(); // Henter alle aktiviteter fra databasen
     }
@@ -28,5 +24,9 @@ public class ActivityService {
             }
             return activityRepo.save(existingActivity);
         }).orElseThrow(() -> new IllegalArgumentException("Aktivitet ikke fundet"));
+    }
+
+    public Activity saveActivity(Activity activity) {
+        return activityRepo.save(activity);
     }
 }

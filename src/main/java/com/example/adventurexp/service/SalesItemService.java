@@ -21,6 +21,10 @@ public class SalesItemService {
 
     public SalesItem saveSalesItem(SalesItem salesItem) { return salesItemRepo.save(salesItem); }
 
+    public List<SalesItem> findByType(String type) {
+        return salesItemRepo.findByType(type);
+    }
+
     public SalesItem updateSalesItemPrice(int id, int price){
         Optional<SalesItem> existingSalesItemOpt = salesItemRepo.findById(id);
 

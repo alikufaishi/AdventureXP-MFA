@@ -18,21 +18,6 @@ public class Activity {
     @Column(nullable = false)
     private int hourly_price;
 
-    /*
-    public Activity(String title, int age_Requirement, int height_Requirement, String equipment, int hourly_price) {
-        this.title = title;
-        this.age_Requirement = age_Requirement;
-        this.height_Requirement = height_Requirement;
-        this.equipment = equipment;
-        this.hourly_price = hourly_price;
-    }
-
-    public Activity(){
-
-    }
-    */
-
-
     public int getId() {
         return id;
     }
